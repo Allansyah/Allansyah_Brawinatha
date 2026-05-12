@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
 import SearchBar from "./SearchBar";
-import heroPerson from "./assets/gambarhero/Subjek.png";
+// import heroPerson from "./assets/gambarhero/Subjek.png";
+const heroPerson = new URL(
+  "./assets/gambarhero/Subjek.png",
+  import.meta.url
+).href;
 import { TypewriterText } from "./Uienhancements";
 
 export default function Hero({ onSearch }: { onSearch: (query: string) => void }) {

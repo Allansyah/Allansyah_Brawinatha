@@ -1,6 +1,6 @@
 import { CONTACT } from "../constants";
 const applImage = new URL(
-  "./assets/dokumentasi/appl.jpg",
+  "./assets/dokumentasi/appl.JPG",
   import.meta.url
 ).href;
 const indoImage = new URL("./assets/dokumentasi/indo.jpg", import.meta.url).href;
