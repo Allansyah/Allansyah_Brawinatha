@@ -1,7 +1,10 @@
 import { CONTACT } from "../constants";
-import applImage from "./assets/dokumentasi/appl.jpg";
-import indoImage from "./assets/dokumentasi/indo.jpg";
-import hack from "./assets/dokumentasi/image.png";
+const applImage = new URL(
+  "./assets/dokumentasi/appl.jpg",
+  import.meta.url
+).href;
+const indoImage = new URL("./assets/dokumentasi/indo.jpg", import.meta.url).href;
+const hack = new URL("./assets/dokumentasi/image.png", import.meta.url).href;
 import { AnimatedStat } from "./Animatedstat";
 
 import {
