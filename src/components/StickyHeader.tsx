@@ -35,7 +35,7 @@ export default function StickySearchHeader({ onSearch, activeSection }: StickySe
   return (
     <>
       <div className={`fixed top-0 left-0 w-full bg-white border-b border-[#dfe1e5] z-50 transition-all duration-300 ${
-        isScrolled ? 'shadow-md pt-4' : 'pt-4 md:pt-8'
+        isScrolled ? 'shadow-md pt-8' : 'pt-8 md:pt-8'
       }`}>
         <div className="max-w-[1280px] mx-auto">
           {/* Header Top Section - Responsive */}
@@ -43,7 +43,8 @@ export default function StickySearchHeader({ onSearch, activeSection }: StickySe
             {/* Logo Section - Centered on mobile */}
             <div className="flex items-center justify-between w-full md:w-auto">
               <div className="font-google cursor-pointer hover:opacity-80 transition-opacity" onClick={() => onSearch('home')}>
-                <div className="text-[18px] sm:text-[20px] md:text-[22px] font-bold tracking-tighter leading-none -ml-2 sm:-ml-3 md:-ml-7 -mb-2 sm:-mb-3 my-1">
+                {/* Baris pertama: ALLANSYAH - dengan jarak bawah */}
+                <div className="text-[18px] sm:text-[20px] md:text-[22px] font-bold tracking-tighter leading-none -ml-2 sm:-ml-3 md:-ml-7 mb-2 sm:mb-3 md:mb-4 my-1">
                   <span className="text-[#4285f4]">A</span>
                   <span className="text-[#ea4335]">L</span>
                   <span className="text-[#fbbc05]">L</span>
@@ -54,7 +55,9 @@ export default function StickySearchHeader({ onSearch, activeSection }: StickySe
                   <span className="text-[#34a853]">A</span>
                   <span className="text-[#ea4335]">H</span>
                 </div>
-                <div className="text-[18px] sm:text-[20px] md:text-[22px] font-bold tracking-tighter leading-none -mt-2 sm:-mt-3">
+                
+                {/* Baris kedua: BRAWINATHA - dengan jarak atas opsional */}
+                <div className="text-[18px] sm:text-[20px] md:text-[22px] font-bold tracking-tighter leading-none">
                   <span className="text-[#4285f4]">B</span>
                   <span className="text-[#ea4335]">R</span>
                   <span className="text-[#fbbc05]">A</span>
