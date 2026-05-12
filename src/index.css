@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Product+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&display=swap');
 @import "tailwindcss";
-@import "./animations-additions.css";
+/* @import "./animations-additions.css"; */
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
