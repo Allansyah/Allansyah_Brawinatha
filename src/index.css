@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Product+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&display=swap');
+@import "tailwindcss";
+@import "./animations-additions.css";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-google: "Product Sans", "Inter", sans-serif;
+  --font-caveat: "Caveat", cursive;
+}
+
+@layer base {
+  :root {
+    --google-blue: #1a73e8;
+    --google-blue-hover: #174ea6;
+    --google-gray: #f8f9fa;
+    --google-border: #f1f3f4;
+    --surface: #ffffff;
+    --ink: #1f2937; /* slate-800 */
+    --ink-secondary: #4b5563; /* gray-600 */
+    --link-color: #1a0dab;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--ink);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+.google-shadow {
+  box-shadow: 0 1px 6px rgba(32,33,36,.28);
+}
+
+.google-shadow-hover:hover {
+  box-shadow: 0 1px 6px rgba(32,33,36,.28);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--google-border);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PASTE THIS AT THE BOTTOM OF YOUR index.css
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Shimmer / skeleton highlight ─────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(66, 133, 244, 0.08) 40%,
+    rgba(66, 133, 244, 0.15) 50%,
+    rgba(66, 133, 244, 0.08) 60%,
+    transparent 100%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 2.2s infinite linear;
+}
+
+/* Skill tag hover shimmer */
+.skill-tag {
+  position: relative;
+  overflow: hidden;
+}
+.skill-tag::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0s;
+}
+.skill-tag:hover::after {
+  background-position: -200% 0;
+  transition: background-position 0.5s ease;
+}
+
+/* ─── Stagger entrance animation ────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  animation: fadeSlideUp 0.5s ease both;
+}
+.stagger-item:nth-child(1) { animation-delay: 0.05s; }
+.stagger-item:nth-child(2) { animation-delay: 0.12s; }
+.stagger-item:nth-child(3) { animation-delay: 0.19s; }
+.stagger-item:nth-child(4) { animation-delay: 0.26s; }
+.stagger-item:nth-child(5) { animation-delay: 0.33s; }
+.stagger-item:nth-child(6) { animation-delay: 0.40s; }
+.stagger-item:nth-child(7) { animation-delay: 0.47s; }
+.stagger-item:nth-child(8) { animation-delay: 0.54s; }
+
+/* ─── Google-color gradient text ────────────────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text-google {
+  background: linear-gradient(
+    270deg,
+    #4285f4, #ea4335, #fbbc05, #34a853, #4285f4
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* ─── Search bar glow pulse ─────────────────────────────────────── */
+@keyframes searchPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0); }
+  50%       { box-shadow: 0 0 0 6px rgba(66, 133, 244, 0.08); }
+}
+
+.search-glow:focus-within {
+  animation: searchPulse 2s ease infinite;
+}
+
+/* ─── Section reveal with clip-path ─────────────────────────────── */
+@keyframes clipReveal {
+  from { clip-path: inset(0 0 100% 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0% 0);   opacity: 1; }
+}
+
+.clip-reveal {
+  animation: clipReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Knowledge panel entrance ───────────────────────────────────── */
+@keyframes panelFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+.knowledge-panel-float {
+  animation: panelFloat 6s ease-in-out infinite;
+}
+
+/* ─── Online indicator pulse ─────────────────────────────────────── */
+/* (already using animate-ping from Tailwind — this enhances it) */
+@keyframes statusGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(52, 168, 83, 0); }
+}
+
+.status-pulse-glow {
+  animation: statusGlow 2s ease-in-out infinite;
+}
+
+/* ─── Tab underline slide-in ─────────────────────────────────────── */
+.tab-active-bar {
+  position: relative;
+}
+.tab-active-bar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #1a73e8;
+  border-radius: 3px 3px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+  transform-origin: left;
+}
+.tab-active-bar.active::after {
+  transform: scaleX(1);
+}
+
+/* ─── Project card tilt effect (needs JS) ────────────────────────── */
+.tilt-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transform-style: preserve-3d;
+}
+
+/* ─── Gradient border for highlight cards ─────────────────────────── */
+.gradient-border {
+  position: relative;
+  background: white;
+  z-index: 0;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #4285f4, #ea4335, #fbbc05, #34a853);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ─── Scroll progress bar ────────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4285f4 0%, #ea4335 33%, #fbbc05 66%, #34a853 100%);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ─── Image hover zoom with clip ─────────────────────────────────── */
+.img-zoom-clip {
+  overflow: hidden;
+  border-radius: inherit;
+}
+.img-zoom-clip img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom-clip:hover img {
+  transform: scale(1.08);
+}
+
+/* ─── Text highlight Google-style ────────────────────────────────── */
+::selection {
+  background: rgba(66, 133, 244, 0.2);
+  color: #1a0dab;
+}
+
+/* ─── Scrollbar Google-style ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f8f9fa; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#4285f4, #34a853);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#1a73e8, #1e8e3e);
+}
+
+/* ─── No scrollbar utility ───────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
