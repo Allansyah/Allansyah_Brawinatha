@@ -233,7 +233,7 @@ export default function KnowledgePanel() {
           {/* Tombol Download CV */}
           <div className="pt-2">
             <a
-              href="#"
+              href="https://drive.google.com/file/d/1R_mif4VhkpRjnSsSGQk44riXheQRys8W/view?usp=sharing"
               className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-[#1a73e8] to-[#4285f4] text-white rounded-lg font-medium text-[14px] hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <Download className="w-4 h-4" />
